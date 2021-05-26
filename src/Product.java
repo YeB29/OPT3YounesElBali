@@ -4,69 +4,73 @@ class Product {
     private int productID;
     private String productName;
     private int productQuantity;
-    private Double productWeight;
+    private double productWeight;
     private LocalDate expirationDate;
-    private Double count;
+    private int count;
+    private double orderAmount;
 
-    public Product(int productID, String productName, int productQuantity, Double productWeight, LocalDate expirationDate){
+    public Product(int productID, String productName, int productQuantity, double productWeight, LocalDate expirationDate) {
         this.productID = productID;
         this.productName = productName;
         this.productQuantity = 0;
         this.productWeight = productWeight;
         this.expirationDate = expirationDate;
-        this.count =0.0;
 
     }
 
-    public int getProductID() {
-        return productID;
-    }
 
-    public String getProductName() {
-        return this.productName;
-    }
+    public Boolean requirement(Boolean productID, double productWeight, Boolean productQuantity) {
 
-    public int getProductQuantity() {
-        return productQuantity;
-    }
-
-    public Double getProductWeight() {
-        return productWeight;
-    }
-
-    public Boolean getExpirationDate(LocalDate expirationDate) {
-        if(expirationDate.equals(LocalDate.of(2021,6,30))) {
+        if (productID || (productWeight <= 0 && productWeight >= 10 && productQuantity)) {
             return true;
         }
         return false;
     }
 
-
-
-    public Boolean requirement(Boolean productID, Integer productQuantity, Double productWeight) {
-
-        if( productID || ( productWeight <=0 && productWeight>=10 &&( productQuantity>=0|| productQuantity <=15 ))) {
-            return true;
+    public int getCount(double productWeight) {
+        if ( (productWeight >= 0.0) && (productWeight < 4.0)) {
+            return count = 1;
         }
-        return false;
+        if ((productWeight >= 4.0) && (productWeight < 7.0)) {
+            return count = 2;
+        }
+
+        if ((productWeight >= 7.0) && (productWeight <= 10.0)) {
+            return count = 3;
+        }
+
+        return 0;
     }
 
-    public Double getCount(Double productWeight){
-        if(productWeight > 0 && productWeight<0){
-             return 1.0;
+    // deze methode berekent het bedrag wat de gebruiker mag gebruiken om bestellingen bij leveranciers te plaatsten
+
+    public double berekenBestelbedrag(double productWeight, Boolean productID, Boolean productQuantity, double orderAmount) {
+
+        if ( (productWeight >= 0.0) && (productWeight < 4.0) || (orderAmount > 70.00)) {
+            if (productID || productQuantity) {
+                return 100.00;
+            } else {
+                return 50.00;
+            }
         }
-        if(productWeight>=4 && productWeight<7){
-           return 2.0;
-            }
 
-        if(productWeight>=7 && productWeight<10){
-            return 3.0;
+        if (( productWeight >= 4.0)  && ( productWeight < 7.0) || (orderAmount > 50.00)) {
+            if (productID || productQuantity) {
+                return 75.00;
+            } else {
+                return 30.00;
             }
+        }
 
-            return 0.0;
+        if (( productWeight >= 7.0) && (productWeight < 10.0) || (orderAmount > 30.00)) {
+            if (productID || productQuantity) {
+                return 50.00;
+            } else {
+                return 20.00;
+            }
+        }
+
+        return 0.0;
     }
-
-
-
 }
 
