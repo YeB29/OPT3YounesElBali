@@ -26,9 +26,21 @@ class ProductTest {
         }
 
 
-
     @Test
-    void getProductQuantityTest() {
+    void getCountTest() {
+        Product item1 = new Product(478, "Avocado",0,0.0, LocalDate.of(2021,6,30));
+
+        assertEquals(1.0,item1.getCount(0.0),0.0001);
+        assertEquals(1.0,item1.getCount(2.0),0.0001);
+        assertEquals(1.0,item1.getCount(3.0),0.0001);
+        assertEquals(2.0,item1.getCount(4.0),0.0001);
+        assertEquals(2.0,item1.getCount(5.0),0.0001);
+        assertEquals(2.0,item1.getCount(6.0),0.0001);
+        assertEquals(3.0,item1.getCount(7.0),0.0001);
+        assertEquals(3.0,item1.getCount(8.0),0.0001);
+        assertEquals(3.0,item1.getCount(10.0),0.0001);
+
+
     }
 
     @Test

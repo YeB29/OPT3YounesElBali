@@ -6,13 +6,16 @@ class Product {
     private int productQuantity;
     private Double productWeight;
     private LocalDate expirationDate;
+    private Double count;
 
-    public Product(int productID, String productName, int productQuantity, Double productWeight, LocalDate expirationDate ){
+    public Product(int productID, String productName, int productQuantity, Double productWeight, LocalDate expirationDate){
         this.productID = productID;
         this.productName = productName;
         this.productQuantity = 0;
         this.productWeight = productWeight;
         this.expirationDate = expirationDate;
+        this.count =0.0;
+
     }
 
     public int getProductID() {
@@ -46,6 +49,21 @@ class Product {
             return true;
         }
         return false;
+    }
+
+    public Double getCount(Double productWeight){
+        if(productWeight > 0 && productWeight<0){
+             return 1.0;
+        }
+        if(productWeight>=4 && productWeight<7){
+           return 2.0;
+            }
+
+        if(productWeight>=7 && productWeight<10){
+            return 3.0;
+            }
+
+            return 0.0;
     }
 
 
