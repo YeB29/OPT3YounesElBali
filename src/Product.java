@@ -1,13 +1,14 @@
 import java.time.LocalDate;
+import java.util.Scanner;
 
 class Product {
-    private Integer productID;
+    private int productID;
     private String productName;
-    private Integer productQuantity;
+    private int productQuantity;
     private Double productWeight;
     private LocalDate expirationDate;
 
-    public Product(Integer productID, String productName, Integer productQuantity, Double productWeight, LocalDate expirationDate ){
+    public Product(int productID, String productName, int productQuantity, Double productWeight, LocalDate expirationDate ){
         this.productID = productID;
         this.productName = productName;
         this.productQuantity = 0;
@@ -15,7 +16,7 @@ class Product {
         this.expirationDate = expirationDate;
     }
 
-    public Integer getProductID() {
+    public int getProductID() {
         return productID;
     }
 
@@ -23,7 +24,7 @@ class Product {
         return productName;
     }
 
-    public Integer getProductQuantity() {
+    public int getProductQuantity() {
         return productQuantity;
     }
 
@@ -31,7 +32,21 @@ class Product {
         return productWeight;
     }
 
-    public LocalDate getExpirationDate() {
-        return expirationDate;
+    public Boolean getExpirationDate(LocalDate expirationDate) {
+        if(expirationDate.equals(LocalDate.of(2021,6,30))) {
+            return true;
+        }
+        return false;
+    }
+
+    public Boolean requirement(int productID , Integer productQuantity, LocalDate expirationDate) {
+        Scanner s = new Scanner(System.in);
+        int input = s.nextInt();
+
+        if(productID == input || ( getExpirationDate(expirationDate) && ( productQuantity>=0|| productQuantity <=15 ))){
+            return true;
+        }
+        return false;
     }
 }
+
