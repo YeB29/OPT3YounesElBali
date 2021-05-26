@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-import java.util.Scanner;
 
 class Product {
     private int productID;
@@ -21,7 +20,7 @@ class Product {
     }
 
     public String getProductName() {
-        return productName;
+        return this.productName;
     }
 
     public int getProductQuantity() {
@@ -39,14 +38,17 @@ class Product {
         return false;
     }
 
-    public Boolean requirement(int productID , Integer productQuantity, LocalDate expirationDate) {
-        Scanner s = new Scanner(System.in);
-        int input = s.nextInt();
 
-        if(productID == input || ( getExpirationDate(expirationDate) && ( productQuantity>=0|| productQuantity <=15 ))){
+
+    public Boolean requirement(Boolean productID, Integer productQuantity, Double productWeight) {
+
+        if( productID || ( productWeight <=0 && productWeight>=10 &&( productQuantity>=0|| productQuantity <=15 ))) {
             return true;
         }
         return false;
     }
+
+
+
 }
 
