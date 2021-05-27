@@ -1,0 +1,115 @@
+import java.time.LocalDate;
+import java.util.Date;
+
+public class Product {
+    private int productID;
+    private String productName;
+    private Double productWeight;
+    private LocalDate expirationDate;
+
+    public Product(int productID,String productName,Double productWeight, LocalDate expirationDate){
+        this.productID = productID;
+        this.productName = productName;
+        this.productWeight = productWeight;
+        this.expirationDate = expirationDate;
+    }
+
+    public Double turnoverRate(){
+        return ((Warehouse.totalProduct()/0.75)*365);
+    }
+
+    public int getProductID() {
+        return productID;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public Double getProductWeight() {
+        return productWeight;
+    }
+
+    public LocalDate getExpirationDate() {
+        return expirationDate;
+    }
+
+
+}import java.util.ArrayList;
+
+public class Warehouse {
+    private String name;
+    private int ID;
+    private ArrayList<Product> consistsOf;
+
+    public Warehouse(String name, int ID){
+        this.name = name;
+        this.ID = ID;
+        this.consistsOf = new ArrayList<Product>();
+    }
+
+    public void addProduct(){
+        System.out.println("Voeg een product toe:");
+
+        consistsOf.add(this.name);
+
+    }
+    public void removeProduct(){
+        System.out.println("Verwijder een product:");
+
+        consistsOf.remove(this.name);
+
+    }
+
+    public static void totalProduct(){
+
+        for (int i = 0; i < consistsOf.size();i++){
+            System.out.println(consistsOf.get(i));
+        }
+    }
+
+} class Employee {
+private int employeeID;
+private String employeeName;
+private String employeeFunction;
+
+private Warehouse uses;
+
+public Employee(int employeeID,String employeeName,String employeeFunction){
+    this.employeeID = employeeID;
+    this.employeeName = employeeName;
+    this.employeeFunction = employeeFunction;
+    this.uses = uses;
+}
+
+
+}import java.time.LocalDate;
+import java.util.Scanner;
+
+
+public class Stock extends Product{
+    private int productQuantity;
+
+    public Stock(int productID,String productName,Double productWeight, LocalDate expirationDate, int productQuantity){
+        super(productID, productName, productWeight, expirationDate);
+        this.productQuantity = 0;
+    }
+
+    public int addProductQuantity(int productQuantity){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Vul de hoeveelheid in dat u wilt toevoegen: ");
+        int input = scanner.nextInt();
+        productQuantity += input;
+        return productQuantity;
+    }
+    public int removeProductQuantity(int productQuantity){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Vul de hoeveelheid in dat u wilt verwijderen: ");
+        int input = scanner.nextInt();
+        productQuantity -= input;
+        return productQuantity;
+    }
+    public int totalProductQuantity(int productQuantity){
+        return productQuantity;
+    }
+}
