@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Stock extends Product implements Stockinterface{
     private int productQuantity;
 
-    public Stock(int productID, String productName){
-        super(productID, productName);
+    public Stock(int productID, String productName, Double productweight, LocalDate expirationDate){
+        super(productID, productName, productweight, expirationDate);
         this.productQuantity = 0;
     }
     @Override

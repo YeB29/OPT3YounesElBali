@@ -12,6 +12,7 @@ public class Main {
             System.out.println("2. (Verhoog/ verlaag/ toon hoeveelheid) hoeveelheid van een product.");
             System.out.println("3. Bekijk de cijfers. ");
             int in = input.nextInt();
+
             switch (in){
                 case 1:
                     Warehouse mag = new Warehouse();
@@ -24,7 +25,10 @@ public class Main {
                 break;
 
                 case 2:
-                    Stock quantity = new Stock(123,"Kaas");
+                    System.out.println("Enter date: ");
+                    String date = input.nextLine();
+                    LocalDate date1 = LocalDate.parse(date);
+                    Stock quantity = new Stock(123,"Kaas",2.5,date1);
                     System.out.println("Wilt u een product toevoegen kies 1, verwijderen kies 2 en het weergeven van het totaal kies 3.");
                     int keuze1 = input.nextInt();
                     input.nextLine();
@@ -40,7 +44,10 @@ public class Main {
                 break;
 
                 case 3:
-                    Product product = new Product(123,"Kaas");
+                    System.out.println("Enter date: ");
+                    String date2 = input.nextLine();
+                    LocalDate date3 = LocalDate.parse(date2);
+                    Turnover product = new Turnover(123,"Kaas",2.5,date3);
                     System.out.println("Geef de prijs van het product:");
                     Double price = input.nextDouble();
                     product.turnoverRate(price);

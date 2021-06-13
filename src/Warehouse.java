@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java. util. Date;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -19,7 +20,12 @@ public class Warehouse implements interfaceWarehouse{
         scanner.nextLine();
         System.out.println("Geef een naam voor het product:");
         String name = scanner.nextLine();
-        productList.add(new Product(ID,name));
+        System.out.println("Geef de gewicht van het product:");
+        Double  weight= scanner.nextDouble();
+        System.out.println("Geef de houdsbaarheidsdatum van het product:");
+        String date = scanner.nextLine();
+        LocalDate date1 = LocalDate.parse(date);
+        productList.add(new Product(ID,name, weight,date1));
 
     }
 
@@ -34,7 +40,12 @@ public class Warehouse implements interfaceWarehouse{
         scanner.nextLine();
         System.out.println("Geef de naam van het product:");
         String name = scanner.nextLine();
-        productList.remove(new Product(ID,name));
+        System.out.println("Geef de gewicht van het product:");
+        Double  weight= scanner.nextDouble();
+        System.out.println("Geef de houdsbaarheidsdatum van het product:");
+        String date = scanner.nextLine();
+        LocalDate date1 = LocalDate.parse(date);
+        productList.remove(new Product(ID,name, weight,date1));
 
     }
     @Override
