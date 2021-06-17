@@ -10,7 +10,7 @@ public class Stock extends Product implements Stockinterface{
         this.productQuantity = 0;
     }
     @Override
-    public void addProductQuantity(int keuze){
+    public void addProductQuantity(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Vul de hoeveelheid in dat u wilt toevoegen: ");
         int input = scanner.nextInt();
@@ -18,7 +18,7 @@ public class Stock extends Product implements Stockinterface{
 
     }
     @Override
-    public void removeProductQuantity(int keuze){
+    public void removeProductQuantity(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Vul de hoeveelheid in dat u wilt verwijderen: ");
         int input = scanner.nextInt();

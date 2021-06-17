@@ -12,21 +12,15 @@ class Employee {
     }
 
 
-    public boolean getEmployeeID(int employeeID) {
-        if(this.employeeID== employeeID) {
-            return true;
-        }
-        return false;
+    public int getEmployeeID() {
+        return employeeID;
     }
 
-    public Boolean getEmployeeName(String employeeName) {
-        if (this.employeeName.equals(employeeName)) {
-            return true;
-        }
-        return false;
+    public String getEmployeeName() {
+        return employeeName;
     }
 
-    public String getEmployeeFunction(String employeeFunction) {
+    public String getEmployeeFunction() {
         return employeeFunction;
     }
 }

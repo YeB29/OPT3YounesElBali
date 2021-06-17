@@ -1,5 +1,5 @@
 interface Stockinterface {
-    void addProductQuantity(int keuze);
-    void removeProductQuantity(int keuze);
+    void addProductQuantity();
+    void removeProductQuantity();
     default void totalProductQuantity(){}
 }

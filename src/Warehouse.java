@@ -8,11 +8,21 @@ public class Warehouse implements interfaceWarehouse{
     private int ID;
     private ArrayList<Product> productList;
 
-    public Warehouse(){
+    public Warehouse(String name, int ID){
+        this.name = name;
+        this.ID = ID;
         this.productList = new ArrayList<Product>();
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getID() {
+        return ID;
+    }
     @Override
-    public void addProduct(int product){
+    public void addProduct(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Voeg een product toe:");
         System.out.println("Geef een ID nummer voor het product:");
@@ -32,7 +42,7 @@ public class Warehouse implements interfaceWarehouse{
 
 
     @Override
-    public void removeProduct(int product){
+    public void removeProduct(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Verwijder een product:");
         System.out.println("Geef het ID nummer van het product:");
@@ -49,11 +59,11 @@ public class Warehouse implements interfaceWarehouse{
 
     }
     @Override
-    public void totalProduct(int product){
+    public void totalProduct(){
 
         for (int i = 0; i < productList.size();i++){
             System.out.println(productList.get(i));
         }
-        System.out.println(product);
+        System.out.println(productList);
     }
 }

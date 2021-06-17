@@ -15,13 +15,21 @@ public class Main {
 
             switch (in){
                 case 1:
-                    Warehouse mag = new Warehouse();
-                    System.out.println("Voeg een type product toe?");
+                    Warehouse mag = new Warehouse("Kelder",001);
+                    System.out.println("Wilt u een product toevoegen kies 1, verwijderen kies 2 en het weergeven van het totaal kies 3.");
                     int keuze = input.nextInt();
                     input.nextLine();
-                    mag.addProduct(keuze);
-                    mag.removeProduct(keuze);
-                    mag.totalProduct(keuze);
+
+                    if(keuze == 1) {
+                        mag.addProduct();
+                    }
+                    else if(keuze == 2){
+                        mag.removeProduct();
+
+                    }
+                    else{
+                        mag.totalProduct();
+                    }
                 break;
 
                 case 2:
@@ -29,14 +37,14 @@ public class Main {
                     String date = input.nextLine();
                     LocalDate date1 = LocalDate.parse(date);
                     Stock quantity = new Stock(123,"Kaas",2.5,date1);
-                    System.out.println("Wilt u een product toevoegen kies 1, verwijderen kies 2 en het weergeven van het totaal kies 3.");
+                    System.out.println("Wilt u een producthoeveelheid verhogen kies 1, verlagen kies 2 en het weergeven van het totaal kies 3.");
                     int keuze1 = input.nextInt();
                     input.nextLine();
                     if(keuze1 == 1) {
-                        quantity.addProductQuantity(keuze1);
+                        quantity.addProductQuantity();
                             }
                     else if(keuze1 == 2){
-                            quantity.removeProductQuantity(keuze1);
+                            quantity.removeProductQuantity();
                             }
                     else{
                         quantity.totalProductQuantity();
@@ -47,13 +55,14 @@ public class Main {
                     System.out.println("Enter date: ");
                     String date2 = input.nextLine();
                     LocalDate date3 = LocalDate.parse(date2);
-                    Turnover product = new Turnover(123,"Kaas",2.5,date3);
+                    Product item = new Product(123,"Kaas",2.5,date3);
                     System.out.println("Geef de prijs van het product:");
                     Double price = input.nextDouble();
-                    product.turnoverRate(price);
+                    item.turnoverRate(price);
         }
 
 
     }}
+
 
 

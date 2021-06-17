@@ -13,8 +13,14 @@ public class Product  {
             this.productWeight = productWeight;
           this.expirationDate = expirationDate;
         }
+    public void turnoverRate(Double price){
+        Double rate =  (price *365)/100;
 
-        public int getProductID() {
+        System.out.println(rate);
+    }
+
+
+    public int getProductID() {
             return productID;
         }
 
